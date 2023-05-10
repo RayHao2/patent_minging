@@ -14,8 +14,7 @@ class PatentCrawler(scrapy.Spider):
         if response.status == 400:
             self.logger.error('Received a 400 status code for URL: %s', response.url)
             return
-        file_name = response.url.split('/')[-1]
-
+        file_name = response.url.split('/')[-1] + '.pdf'
         # Create the output folder if it doesn't exist
         os.makedirs(self.output_folder, exist_ok=True)
 
